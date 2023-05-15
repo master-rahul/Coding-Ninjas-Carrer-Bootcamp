@@ -1,3 +1,5 @@
+package _2DArrays;
+
 import java.util.Scanner;
 
 public class _2DArrays {
