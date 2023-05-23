@@ -44,6 +44,8 @@ public class Array {
 		//tripletSumCount_1();
 		//tripletSumCount_2();
 		//tripletSumCount_3();
+		//leadersInArray();
+		maximumSumPath();
 		
 	}
 	public static void sumOfArray() {
@@ -704,7 +706,46 @@ public class Array {
 		}		
 		System.out.println(result);
 	}
-	
+	public static void leadersInArray() throws IOException {
+		System.out.println("LeadersInArray : ");
+		int n = Integer.parseInt(reader.readLine());
+		String arrString[] = reader.readLine().split(" ");
+		int arr[] = new int[arrString.length];
+		for(int i = 0; i < arr.length; i++) arr[i] = Integer.parseInt(arrString[i]);
+		int maximum = Integer.MIN_VALUE;
+		for(int i = arr.length-1; i >= 0; i--) 
+			if(arr[i] >= maximum) {System.out.print(arr[i] +" "); maximum = arr[i];}
+	}
+	public static void maximumSumPath() throws IOException{
+		System.out.println("MaximumSumPath : ");
+		int n = Integer.parseInt(reader.readLine());
+		String arrString[] = reader.readLine().split(" ");
+		int arr1[] = new int[arrString.length];
+		for(int i = 0; i < arr1.length; i++) arr1[i] = Integer.parseInt(arrString[i]);
+		int m = Integer.parseInt(reader.readLine());
+		arrString = reader.readLine().split(" ");
+		int arr2[] = new int[arrString.length];
+		for(int i = 0; i < arr2.length; i++) arr2[i] = Integer.parseInt(arrString[i]);
+		int i = 0, j = 0;
+		long totalSum = 0, arr1Sum = 0, arr2Sum = 0;
+		while(i < arr1.length && j < arr2.length) {
+			if(arr1[i] > arr2[j]) {
+				arr2Sum += arr2[j++];
+			}else if(arr1[i] < arr2[j]) {
+				arr1Sum += arr1[i++];
+			}else {
+				arr1Sum += arr1[i++];
+				arr2Sum += arr2[j++];
+				totalSum += arr1Sum > arr2Sum ? arr1Sum : arr2Sum;
+				arr1Sum = 0;
+				arr2Sum = 0;
+			}
+		}
+		while(i < arr1.length) arr1Sum += arr1[i++];
+		while(j < arr2.length) arr2Sum += arr2[j++];
+		totalSum += arr1Sum > arr2Sum ? arr1Sum : arr2Sum;
+		System.out.println(totalSum);
+	}
 
 }
 
