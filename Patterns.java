@@ -6,24 +6,25 @@ public class Patterns {
 	public static void main(String args[]) {
 		Scanner s = new Scanner(System.in);
 		int n = s.nextInt();
-		squarePattern(n);
-		triangularStarPattern(n);
-		triangularNumberPattern(n);
-		reverseNumberPattern(n);
-		alphaPattern(n);
-		characterPattern(n);
-		interstingAlphabets(n);
-		mirrorImageNumberPattern(n);
-		invertedNumberPattern(n);
-		starPattern(n);
-		triangleOfNumbers(n);
-		diamondOfStars(n);
-		halfDiamondStars(n);
-		parallelogramPattern(n);
-		sumPattern(n);
-		oddSquare(n);
-		numberStarPattern(n);
-		numberStarPattern1(n);
+//		squarePattern(n);
+//		triangularStarPattern(n);
+//		triangularNumberPattern(n);
+//		reverseNumberPattern(n);
+//		alphaPattern(n);
+//		characterPattern(n);
+//		interstingAlphabets(n);
+//		mirrorImageNumberPattern(n);
+//		invertedNumberPattern(n);
+//		starPattern(n);
+//		triangleOfNumbers(n);
+//		diamondOfStars(n);
+//		halfDiamondStars(n);
+//		parallelogramPattern(n);
+//		sumPattern(n);
+//		oddSquare(n);
+//		numberStarPattern(n);
+//		numberStarPattern1(n);
+		rectangularNumbers(n);
 	}
 	
 	public static void squarePattern(int n) {
@@ -287,6 +288,28 @@ public class Patterns {
 			s.append("\n");
 		}
 		System.out.println(s);
+	}
+	public static void rectangularNumbers(int n) {
+		int m = 2*n - 2;
+		for(int i = 0; i < n; i++) {
+			int num = n;
+			for(int j = 0;j  <= m; j++) {
+				if(j >= 1 && j <= i) {
+					num--;
+				}else if(j >= m-i+1) num++;
+				System.out.print(num);
+			}
+			System.out.println();
+		}
+		for(int i = n; i < m+1; i++) {
+			int num = n;
+			for(int j =0; j <= m; j++) {
+				if( j >= 1 && j <= m-i) num--;
+				else if(j >i) ++num;
+				System.out.print(num);
+			}
+			System.out.println();
+		}
 	}
 }
 
