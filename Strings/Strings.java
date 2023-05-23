@@ -1,12 +1,15 @@
 package Strings;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Strings {
 	
-	static Scanner s = new Scanner(System.in);
-	
-	public static void main(String args[]) {
+	public static Scanner s = new Scanner(System.in);
+	public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String args[]) throws Exception{
 		//countWords();
 		//stringPalindrome();
 		//printSubstringsIterative();
@@ -17,6 +20,7 @@ public class Strings {
 		//removeCharacter();
 		//highestOccuringCharacter();
 		//compressString();
+		minLengthWord();
 	}
 	public static void countWords() {
 		System.out.println("CountWords : ");
@@ -124,4 +128,26 @@ public class Strings {
 		System.out.println(ans);
 		
 	}
+	public static void minLengthWord() throws IOException {
+		System.out.println("MinLengthWord : ");
+		String line = reader.readLine();
+		String minWord = line;
+		for(String str : line.split(" ")) if(str.length() < minWord.length()) minWord = str;
+		System.out.println(minWord);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
