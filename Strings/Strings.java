@@ -20,7 +20,8 @@ public class Strings {
 		//removeCharacter();
 		//highestOccuringCharacter();
 		//compressString();
-		minLengthWord();
+		//minLengthWord();
+		faultyKeyboard();
 	}
 	public static void countWords() {
 		System.out.println("CountWords : ");
@@ -134,6 +135,32 @@ public class Strings {
 		String minWord = line;
 		for(String str : line.split(" ")) if(str.length() < minWord.length()) minWord = str;
 		System.out.println(minWord);
+	}
+	public static void faultyKeyboard() {
+		System.out.println("FaultyKeyboard : ");
+		String str1 = s.nextLine();
+		String str2 = s.nextLine();
+		int i = 0, j = 0;
+		while(i < str1.length() && j < str2.length()) {
+			if(str1.charAt(i) != str2.charAt(j)) {
+				System.out.println(false);
+				return;
+			}else {
+				int c1  = 0, c2 = 0, k = i;
+				while(i < str1.length() && str1.charAt(k) == str1.charAt(i) ) {i++; c1++;}
+				k = j;
+				while(j < str2.length() && str2.charAt(k) ==  str2.charAt(j)) {j++; c2++;}
+				if(c1 > c2){
+					System.out.println(false);
+					return;
+				}
+			}
+		}
+		if(i < str1.length() || j < str2.length()){
+			System.out.println(false);
+			return;
+		}
+		System.out.println(true);
 	}
 }
 
